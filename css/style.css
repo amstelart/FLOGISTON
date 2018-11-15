@@ -302,6 +302,12 @@ body.compensate-for-scrollbar{overflow:hidden}
 .page--main .page-header {
   border-bottom: none;
 }
+.form-check a {
+  text-decoration: underline;
+}
+.form-check a:hover, .form-check a:focus {
+  text-decoration: none;
+}
 .btn-mw {
   min-width: 285px;
 }
@@ -334,10 +340,12 @@ body.compensate-for-scrollbar{overflow:hidden}
 .card-news .card-date {
   color: #a1a0a0;
   margin-bottom: 0.45rem;
+  font-size: 14px;
 }
 .card-news .card-body {
   padding: 0.75rem 0;
   color: #000;
+  font-size: 1.1rem;
 }
 .card-news .card-wrap-link:hover .card-body, .card-news .card-wrap-link:focus .card-body {
   color: #2847bc;
@@ -345,6 +353,7 @@ body.compensate-for-scrollbar{overflow:hidden}
 .card-service .card-body {
   padding: 0.75rem 0;
   color: #000;
+  font-size: 1.1rem;
 }
 .card-service .card-wrap-link:hover .card-body, .card-service .card-wrap-link:focus .card-body {
   color: #2847bc;
@@ -468,6 +477,16 @@ body.compensate-for-scrollbar{overflow:hidden}
 }
 .page-header .header-line {
   background: #eaeaea;
+}
+.page-header .header-line span {
+  margin-right: 6px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.page-header .header-line .btn-link {
+  font-size: 14px;
+  padding-left: 0;
+  padding: 0.55rem 1rem;
 }
 .page-header .header-main {
   padding: 20px 0;
@@ -680,7 +699,7 @@ body.compensate-for-scrollbar{overflow:hidden}
 .reviews-card {
   background: #fff;
   color: #000;
-  padding: 40px 30px;
+  padding: 40px 60px;
   text-align: center;
 }
 .reviews-card-title {
@@ -772,6 +791,67 @@ body.compensate-for-scrollbar{overflow:hidden}
 }
 .card-pricing {
   border: none;
+  display: block;
+}
+.card-pricing .card-wrap-link:hover .card-label, .card-pricing .card-wrap-link:focus .card-label {
+  -webkit-box-shadow: 0px 0px 27px 0px rgba(255, 213, 82, 0.59);
+          box-shadow: 0px 0px 27px 0px rgba(255, 213, 82, 0.59);
+}
+.card-pricing .card-wrap-link:hover .card-text-more, .card-pricing .card-wrap-link:focus .card-text-more {
+  text-decoration: none;
+  color: #2847bc;
+}
+.card-pricing .card-wrap-link:hover .card-pricing-image, .card-pricing .card-wrap-link:focus .card-pricing-image {
+  position: relative;
+}
+.card-pricing .card-wrap-link:hover .card-pricing-image:before, .card-pricing .card-wrap-link:focus .card-pricing-image:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(29, 40, 75, 0);
+  z-index: 2;
+}
+.card-pricing .card-wrap-link:hover .card-pricing-image img, .card-pricing .card-wrap-link:focus .card-pricing-image img {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+}
+.card-pricing .card-pricing-image {
+  position: relative;
+}
+.card-pricing .card-pricing-image:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(29, 40, 75, 0.4);
+  z-index: 2;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+}
+.card-pricing .card-pricing-image img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 0.3s;
+  transition: -webkit-filter 0.3s;
+  transition: filter 0.3s;
+  transition: filter 0.3s, -webkit-filter 0.3s;
+}
+.card-pricing .card-text {
+  color: #000;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+.card-pricing .card-text-more {
+  text-decoration: underline;
 }
 .card-pricing .card-body {
   position: relative;
@@ -779,7 +859,7 @@ body.compensate-for-scrollbar{overflow:hidden}
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
-.card-pricing .card-body .card-label {
+.card-pricing .card-label {
   width: 150px;
   height: 150px;
   background: #c8b26e;
@@ -790,8 +870,6 @@ body.compensate-for-scrollbar{overflow:hidden}
   left: 50%;
   top: -75px;
   color: #fff;
-  -webkit-box-shadow: 0px 0px 27px 0px rgba(255, 213, 82, 0.59);
-          box-shadow: 0px 0px 27px 0px rgba(255, 213, 82, 0.59);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -801,11 +879,14 @@ body.compensate-for-scrollbar{overflow:hidden}
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: 2;
 }
-.card-pricing .card-body .card-label span {
+.card-pricing .card-label span {
   font-size: 18px;
 }
-.card-pricing .card-body .card-label span b {
+.card-pricing .card-label span b {
   font-size: 30px;
 }
 .contacts-list {
@@ -942,14 +1023,98 @@ body.compensate-for-scrollbar{overflow:hidden}
   padding: 0;
   margin: auto;
 }
+.faq-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+}
+.faq-item:not(:last-child) {
+  border-bottom: 1px solid #c6c6c6;
+}
+.faq-item-question {
+  margin-bottom: 2rem;
+}
+.faq-item-answer .faq-item-text {
+  padding-bottom: .5rem;
+}
+.faq-item-answer .faq-item-text p.collapse:not(.show) {
+  height: 42px !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.faq-item-answer .faq-item-text p.collapsing {
+  min-height: 42px !important;
+}
+.faq-item-title {
+  font-size: 16px;
+  color: #243ea0;
+  margin: 0;
+  font-weight: 600;
+  margin: .4rem 0;
+}
+.faq-item-sub-title {
+  font-size: 14px;
+  color: #919191;
+  font-weight: 400;
+}
+.faq-item-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  min-width: 60px;
+  -ms-flex-preferred-size: 60px;
+      flex-basis: 60px;
+}
+.faq-item-more-link {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-bottom: 60px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.faq-item-more-link span {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border-bottom: 2px solid #df2b3c;
+  border-right: 2px solid #df2b3c;
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.faq-item-more-link.collapsed:not(.show) {
+  margin-bottom: 12px;
+}
+.faq-item-more-link.collapsed:not(.show) span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-color: #000;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
 .temp-icon-left-arrow {
-  background-image: url(../img/sprite-06722903241190945.png);
+  background-image: url(../img/sprite-02862022581858332.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px;
 }
 .temp-icon-right-arrow {
-  background-image: url(../img/sprite-06722903241190945.png);
+  background-image: url(../img/sprite-02862022581858332.png);
   background-position: -36px 0px;
   width: 32px;
   height: 32px;
@@ -1089,10 +1254,13 @@ body.compensate-for-scrollbar{overflow:hidden}
   }
   .page-header .header-line span {
     margin-right: 6px;
+    font-size: 12px;
+    font-weight: 300;
   }
   .page-header .header-line .btn-link {
     font-size: 12px;
     padding-left: 0;
+    padding: 0.45rem 1rem;
   }
   .page-header .header-main__inner {
     -ms-flex-preferred-size: 100%;
@@ -1115,6 +1283,9 @@ body.compensate-for-scrollbar{overflow:hidden}
   }
   .reviews-wrap {
     padding: 0;
+  }
+  .reviews-card {
+    padding: 40px 30px;
   }
   .clients-wrap {
     -ms-flex-wrap: wrap;
