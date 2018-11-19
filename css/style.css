@@ -521,6 +521,25 @@ body.compensate-for-scrollbar{overflow:hidden}
           justify-content: flex-end;
   color: #000;
 }
+.page-header .header-nav .navbar-text {
+  display: none;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+.page-header .header-nav--sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background: #fff;
+  height: 60px;
+  -webkit-animation: slideInDown 1s 1 ease-in-out;
+  animation: slideInDown 1s 1 ease-in-out;
+}
+.page-header .header-nav--sticky .navbar-text {
+  display: block;
+}
 .navbar-main {
   padding: .5rem 0;
   margin-bottom: .5rem;
@@ -664,13 +683,14 @@ body.compensate-for-scrollbar{overflow:hidden}
 }
 .section-advice {
   background: #ebeef7;
+  background-image: url("../img/section-advice-bg.svg");
+  background-position: right 23% top 75%;
+  background-size: 523px 450px;
+  background-repeat: no-repeat;
 }
 .section-advice .container {
   padding-top: 60px;
   padding-bottom: 60px;
-  background-image: url("../img/section-advice-bg.png");
-  background-position: right center;
-  background-repeat: no-repeat;
 }
 .section-advice-title {
   font-weight: 600;
@@ -887,7 +907,7 @@ body.compensate-for-scrollbar{overflow:hidden}
   font-size: 18px;
 }
 .card-pricing .card-label span b {
-  font-size: 30px;
+  font-size: 18px;
 }
 .contacts-list {
   color: #777b86;
@@ -926,9 +946,26 @@ body.compensate-for-scrollbar{overflow:hidden}
 }
 .section-feedback-col.image-col {
   background-size: cover;
+  position: relative;
 }
-.section-feedback-col.image-col img {
-  display: none;
+.section-feedback-col.image-col .carousel,
+.section-feedback-col.image-col .carousel-inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.section-feedback-col.image-col .carousel-item {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
 }
 .feedback-form {
   max-width: 420px;
@@ -1107,14 +1144,36 @@ body.compensate-for-scrollbar{overflow:hidden}
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
 .temp-icon-left-arrow {
-  background-image: url(../img/sprite-02862022581858332.png);
+  background-image: url(../img/sprite-010244677158767268.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px;
 }
 .temp-icon-right-arrow {
-  background-image: url(../img/sprite-02862022581858332.png);
+  background-image: url(../img/sprite-010244677158767268.png);
   background-position: -36px 0px;
   width: 32px;
   height: 32px;
@@ -1281,6 +1340,9 @@ body.compensate-for-scrollbar{overflow:hidden}
   .page-header .header-main__contacts .contacts-list {
     display: block;
   }
+  .section-advice {
+    background-position: center top 75%;
+  }
   .reviews-wrap {
     padding: 0;
   }
@@ -1318,8 +1380,8 @@ body.compensate-for-scrollbar{overflow:hidden}
   .section-feedback-col.form-col {
     padding: 0 15px;
   }
-  .section-feedback-col.image-col img {
-    display: block;
+  .section-feedback-col.image-col {
+    height: 400px;
   }
   #carousel-reviews .carousel-control-prev {
     left: 0.5rem;

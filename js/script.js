@@ -72,9 +72,22 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 // Если на проекте jQuery
-// $( document ).ready(function() {
-//   // code
-// });
+$( document ).ready(function() {
+
+  if(window.matchMedia('(min-width: 992px)').matches)
+  {
+    $(window).scroll(function() {
+      if ($(window).scrollTop() >= 200) {
+        $('.header-nav').addClass('header-nav--sticky');
+      } else {
+        $('.header-nav').removeClass('header-nav--sticky');
+      }
+    });
+  }
+
+});
+
+
 
 // Изоляция без jQuery
 // (function(){
