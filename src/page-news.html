@@ -22,7 +22,7 @@
       </nav>
       <div class="page-title-wrap">
         <h1 class="page-title">Новости</h1>
-        <button class="btn btn-danger btn-fw">Подписаться на новости</button>
+        <button class="btn btn-danger btn-fw"  data-toggle="modal" data-target="#subscribeModal">Подписаться на новости</button>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6">
@@ -150,6 +150,7 @@
   </main>
 
   @@include('blocks/page-footer/page-footer.html')
+  @@include('blocks/modal/modal.html')
 
   @@include('_include/page_bottom.html')
 </body>
