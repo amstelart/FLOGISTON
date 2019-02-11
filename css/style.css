@@ -355,6 +355,20 @@ body.compensate-for-scrollbar{overflow:hidden}
   color: #000;
   font-size: 1.1rem;
 }
+.card-service .card-img-top {
+  position: relative;
+  padding-bottom: 64%;
+}
+.card-service .card-img-top .obf-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     font-family: "object-fit:cover";
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .card-service .card-wrap-link:hover .card-body, .card-service .card-wrap-link:focus .card-body {
   color: #2847bc;
 }
@@ -1169,13 +1183,13 @@ body.compensate-for-scrollbar{overflow:hidden}
   }
 }
 .temp-icon-left-arrow {
-  background-image: url(../img/sprite-06245946943637151.png);
+  background-image: url(../img/sprite-09727289505513641.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px;
 }
 .temp-icon-right-arrow {
-  background-image: url(../img/sprite-06245946943637151.png);
+  background-image: url(../img/sprite-09727289505513641.png);
   background-position: -36px 0px;
   width: 32px;
   height: 32px;
