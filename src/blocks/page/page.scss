@@ -1,95 +1,113 @@
-//
-// // Make viewport great again (responsive)
-// // http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
-// @at-root {
-//
-//   @-ms-viewport { // stylelint-disable-line  at-rule-no-vendor-prefix
-//     width: device-width;
-//   }
-// }
-//
-// .page { // html
-//
-//   $block-name:                &; // #{$block-name}__element
-//
-//   box-sizing: border-box;
-//   font-size: 10px;
-//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-//   -ms-overflow-style: scrollbar;
-//   -ms-text-size-adjust: 100%; // stylelint-disable-line  property-no-vendor-prefix
-//   min-width: 320px;
-//   min-height: 100%;
-//
-//   &__inner {
-//     min-height: 100vh;
-//     display: flex;
-//     flex-direction: column;
-//   }
-//
-//   &__content {
-//     flex-grow: 1;
-//   }
-//
-//   &__footer-wrapper {
-//     flex-shrink: 0;
-//   }
-// }
-//
-// *,
-// *:before,
-// *:after {
-//   box-sizing: inherit;
-// }
-//
-// body {
-//   // Типографика проекта — в блоке typo
-//   display: flex;           // Исправляем баг в IE для min-height and flexbox (flex-direction:column)
-//   flex-direction: column;  // и прижимаем footer в IE 10-11
-//   background-color: #fff;
-//   margin: 0;
-//   min-height: 100%;
-// }
-//
-// [tabindex='-1']:focus {
-//   outline: none !important; // stylelint-disable-line  declaration-no-important
-// }
-//
-// // iOS 'clickable elements' fix for role='button'
-// [role='button'] {
-//   cursor: pointer;
-// }
-//
-// // We love Safari
-// input[type='search'] {
-//   -webkit-appearance: textfield; // stylelint-disable-line  property-no-vendor-prefix
-// }
-//
-// // Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
-// a,
-// // area,
-// button,
-// [role='button'],
-// input,
-// label,
-// select,
-// // summary,
-// textarea {
-//   touch-action: manipulation;
-// }
-//
-// // We love EDGE! This is a browser!
-// svg {
-//
-//   a &,
-//   button & {
-//     pointer-events: none;
-//   }
-// }
-//
-// img {
-//   max-width: 100%;
-//   height: auto;
-// }
+
+// Make viewport great again (responsive)
+// http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+@at-root {
+
+  @-ms-viewport { // stylelint-disable-line  at-rule-no-vendor-prefix
+    width: device-width;
+  }
+}
+
+[tabindex='-1']:focus {
+  outline: none !important; // stylelint-disable-line  declaration-no-important
+}
+
+// iOS 'clickable elements' fix for role='button'
+[role='button'] {
+  cursor: pointer;
+}
+
+// We love Safari
+input[type='search'] {
+  -webkit-appearance: textfield; // stylelint-disable-line  property-no-vendor-prefix
+}
+
+
+#main-slider {
+  .carousel-slide {
+    display: flex;
+    @media (max-width: 767.98px) {
+      display: block;
+    }
+    &__left {
+      position: relative;
+      min-height: 443px;
+      width: 50%;
+
+      @media (max-width: 767.98px) {
+        width: 100%;
+        min-height: 320px;
+      }
+
+      .carousel-slide__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__right {
+      position: relative;
+      min-height: 443px;
+      width: 50%;
+      display: flex;
+      align-items: center;
+      background: #191727;
+      overflow: hidden;
+
+      @media (max-width: 767.98px) {
+        width: 100%;
+        min-height: auto;
+      }
+
+      .carousel-slide__overlay {
+        position: absolute;
+        top: -5%;
+        left: -5%;
+        right: -5%;
+        bottom: -5%;
+
+        img {
+          filter: blur(16px);
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          opacity: 0.3;
+        }
+      }
+
+      .carousel-slide__caption {
+        position: relative;
+        padding: 50px;
+        color: #fff;
+        z-index: 2
+      }
+    }
+
+    &__title {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #9d9d9d;
+      max-width: 330px;
+      margin-bottom: 35px;
+    }
+
+    .btn-slide {
+      min-width: 197px;
+      border-color: #75747d;
+    }
+  }
+}
+
 
 .page {
 
@@ -186,6 +204,20 @@
     padding: 0.75rem 0;
     color: #000;
     font-size: 1.1rem;
+  }
+
+  .card-img-top {
+    position: relative;
+    padding-bottom: 64%;
+
+    .obf-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   .card-wrap-link {
@@ -422,6 +454,7 @@
       height: 60px;
       -webkit-animation: slideInDown 1s 1 ease-in-out;
       animation: slideInDown 1s 1 ease-in-out;
+      box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.29);
 
       .navbar-text {
         display: block;
